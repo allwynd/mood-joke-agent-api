@@ -35,11 +35,23 @@ class BaseProvider {
    * @param {object} config
    * @param {string} config.model      Model ID string
    * @param {number} config.maxTokens  Max tokens for the response (default 1024)
+   * @param {string} apiKey  API key for the provider (if required) — can also be set via environment variable
    */
-  constructor(config = {}) {
+  constructor(config = {}, apiKey) {
     if (new.target === BaseProvider) {
       throw new Error("BaseProvider is abstract — instantiate a concrete provider");
     }
+
+    //console.log(`Initializing provider ${this.constructor.name} with model ${config.model} and API key ${apiKey ? "set" : "NOT SET"}`);
+
+    // ✅ Fail fast — don't let a missing key produce a cryptic 401 later
+    if (!apiKey) {
+      throw new Error(
+        `${new.target.name}: API key is not set. ` +
+        "Add it to your .env file or export it as an environment variable."
+      );
+    }
+
     this.model     = config.model;
     this.maxTokens = config.maxTokens || 1024;
   }

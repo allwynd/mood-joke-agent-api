@@ -1,129 +1,140 @@
-const OpenAI       = require("openai");
-const BaseProvider = require("./baseProvider");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const BaseProvider           = require("./baseProvider");
 
-const DEFAULT_MODEL = "gpt-4o";
+const DEFAULT_MODEL = "gemini-1.5-pro";
 
 /**
- * OpenAIProvider
+ * GeminiProvider
  *
- * Wraps the OpenAI SDK. Supports any model with tool/function calling:
- * gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo, etc.
+ * Wraps the Google Generative AI SDK. Supports Gemini models with
+ * function calling: gemini-1.5-pro, gemini-1.5-flash, gemini-2.0-flash, etc.
  *
  * ── Tool format translation ──────────────────────────────────────────────────
- * Normalised → OpenAI:
- *   { name, description, parameters } → { type: "function", function: { name, description, parameters } }
+ * Normalised → Gemini:
+ *   tools array → { functionDeclarations: [{ name, description, parameters }] }
+ *   Note: Gemini uses a single `tools` object with a `functionDeclarations`
+ *   array, not one object per tool.
  *
- * OpenAI response → Normalised:
- *   finish_reason "stop"           → { type: "text", text }
- *   finish_reason "tool_calls"     → { type: "tool_use", id, name, input }
+ * Gemini response → Normalised:
+ *   text part present            → { type: "text", text }
+ *   functionCall part present    → { type: "tool_use", id, name, input }
  *
  * ── Tool result format ───────────────────────────────────────────────────────
  * Normalised { role: "tool_result", toolCallId, content }
- *   → OpenAI { role: "tool", tool_call_id: toolCallId, content }
+ *   → Gemini { role: "user", parts: [{ functionResponse: { name, response } }] }
  *
- * OpenAI does not use a separate system message field — the system prompt is
- * prepended as a { role: "system" } message instead.
+ * Gemini identifies function responses by name, not by ID — the provider
+ * stores a map of { id → name } during tool_use turns for lookup.
+ *
+ * ── System prompt ────────────────────────────────────────────────────────────
+ * Gemini accepts a top-level `systemInstruction` parameter rather than a
+ * system message in the conversation history.
  */
-class OpenAIProvider extends BaseProvider {
+class GeminiProvider extends BaseProvider {
   constructor() {
     super({
-      model:     process.env.OPENAI_MODEL || DEFAULT_MODEL,
+      model:     process.env.GEMINI_MODEL || DEFAULT_MODEL,
       maxTokens: parseInt(process.env.LLM_MAX_TOKENS, 10) || 1024,
-    });
-    this._client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    console.log(`🟢 Provider=[OpenAIProvider] -> Model=${this.model}`);
+    }, process.env.GEMINI_API_KEY);
+
+
+    this._genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    // Map of toolCallId → toolName for resolving function responses
+    this._toolCallNames = {};
+    console.log(`🔵  [GeminiProvider] model=${this.model}`);
   }
 
   /* ── Format translators ────────────────────────────────────────────────── */
 
-  /** Normalised tool definition → OpenAI function tool format */
+  /** Normalised tool definitions → Gemini functionDeclarations format */
   _formatTools(tools) {
-    return tools.map(t => ({
-      type: "function",
-      function: {
+    return [{
+      functionDeclarations: tools.map(t => ({
         name:        t.name,
         description: t.description,
-        parameters:  t.parameters,   // JSON Schema — same structure
-      },
-    }));
+        parameters:  t.parameters,   // JSON Schema — compatible structure
+      })),
+    }];
   }
 
-  /**
-   * Normalised messages → OpenAI messages.
-   * System prompt is injected as the first message.
-   */
-  _formatMessages(messages, system) {
+  /** Normalised messages → Gemini contents array */
+  _formatMessages(messages) {
     const out = [];
-
-    if (system) {
-      out.push({ role: "system", content: system });
-    }
 
     for (const msg of messages) {
       if (msg.role === "tool_result") {
+        // Look up the function name by the stored id→name mapping
+        const fnName = this._toolCallNames[msg.toolCallId] || "pick_jokes";
         out.push({
-          role:         "tool",
-          tool_call_id: msg.toolCallId,
-          content:      msg.content,
+          role:  "user",
+          parts: [{
+            functionResponse: {
+              name:     fnName,
+              response: { content: msg.content },
+            },
+          }],
         });
-      } else if (msg.role === "assistant" && msg._toolCalls) {
-        // Re-attach tool_calls array so OpenAI sees a valid assistant turn
-        out.push({
-          role:       "assistant",
-          content:    msg.content || null,
-          tool_calls: msg._toolCalls,
-        });
+      } else if (msg.role === "assistant" && msg._parts) {
+        out.push({ role: "model", parts: msg._parts });
       } else {
-        out.push({ role: msg.role, content: msg.content });
+        const role = msg.role === "assistant" ? "model" : "user";
+        out.push({ role, parts: [{ text: msg.content }] });
       }
     }
 
     return out;
   }
 
-  /** OpenAI response → normalised AgentResponse */
+  /** Gemini response → normalised AgentResponse */
   _parseResponse(response) {
-    const choice = response.choices[0];
+    const candidate = response.candidates?.[0];
+    if (!candidate) throw new Error("GeminiProvider: response contained no candidates");
 
-    if (!choice) throw new Error("OpenAIProvider: response contained no choices");
+    const parts = candidate.content?.parts || [];
 
-    if (choice.finish_reason === "stop") {
-      return { type: "text", text: choice.message.content || "" };
-    }
-
-    if (choice.finish_reason === "tool_calls") {
-      const toolCall = choice.message.tool_calls[0];
-      let input;
-      try {
-        input = JSON.parse(toolCall.function.arguments);
-      } catch {
-        throw new Error(`OpenAIProvider: could not parse tool arguments: ${toolCall.function.arguments}`);
-      }
+    // Check for a function call part first
+    const fnCallPart = parts.find(p => p.functionCall);
+    if (fnCallPart) {
+      const fn = fnCallPart.functionCall;
+      // Generate a synthetic ID (Gemini doesn't provide one) and store the name
+      const id = `gemini-tc-${Date.now()}`;
+      this._toolCallNames[id] = fn.name;
       return {
-        type:       "tool_use",
-        id:         toolCall.id,
-        name:       toolCall.function.name,
-        input,
-        // Carry the full tool_calls array for re-attachment on next turn
-        _toolCalls: choice.message.tool_calls,
+        type:   "tool_use",
+        id,
+        name:   fn.name,
+        input:  fn.args || {},
+        _parts: parts,
       };
     }
 
-    throw new Error(`OpenAIProvider: unexpected finish_reason "${choice.finish_reason}"`);
+    // Otherwise expect a text part
+    const textPart = parts.find(p => typeof p.text === "string");
+    if (textPart) {
+      return { type: "text", text: textPart.text };
+    }
+
+    // Check finish reason for a clearer error
+    const reason = candidate.finishReason;
+    throw new Error(`GeminiProvider: no usable content in response (finishReason="${reason}")`);
   }
 
   /* ── Main call ─────────────────────────────────────────────────────────── */
 
   async call(messages, tools, system) {
-    const response = await this._client.chat.completions.create({
-      model:      this.model,
-      max_tokens: this.maxTokens,
-      tools:      this._formatTools(tools),
-      messages:   this._formatMessages(messages, system),
+    const geminiModel = this._genAI.getGenerativeModel({
+      model:             this.model,
+      systemInstruction: system,
+      generationConfig:  { maxOutputTokens: this.maxTokens },
     });
 
-    return this._parseResponse(response);
+    const response = await geminiModel.generateContent({
+      tools:    this._formatTools(tools),
+      contents: this._formatMessages(messages),
+    });
+
+    return this._parseResponse(response.response);
   }
 }
 
-module.exports = OpenAIProvider;
+module.exports = GeminiProvider;

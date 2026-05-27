@@ -29,7 +29,8 @@ class OpenAIProvider extends BaseProvider {
     super({
       model:     process.env.OPENAI_MODEL || DEFAULT_MODEL,
       maxTokens: parseInt(process.env.LLM_MAX_TOKENS, 10) || 1024,
-    });
+    }, process.env.OPENAI_API_KEY);
+
     this._client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     console.log(`🟢 Provider=[OpenAIProvider] -> Model=${this.model}`);
   }
