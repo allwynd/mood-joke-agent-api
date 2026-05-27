@@ -1,0 +1,487 @@
+# Mood Joke Generator — joke corpus
+# One joke per line. Blank lines and lines starting with `#` are ignored.
+# The AI agent decides which joke fits the user's mood; no manual categorisation needed.
+
+Why don't scientists trust atoms? Because they make up everything!
+Why did the cookie go to the doctor? Because it felt crummy!
+Why did the scarecrow win an award? He was outstanding in his field!
+What do you call a fish without eyes? A fsh!
+Why did the chicken go to the seance? To talk to the other side!
+Why was six afraid of seven? Because seven eight nine!
+Why can't your nose be 12 inches long? Because then it would be a foot!
+I would tell you a construction joke… but I'm still working on it.
+What do you call cheese that isn't yours? Nacho cheese!
+Why did the bicycle fall over? Because it was two-tired!
+What do you call a bear with no teeth? A gummy bear!
+Why did the golfer bring two pairs of pants? In case he got a hole in one!
+Why don't some couples go to the gym? Because some relationships don't work out.
+What do you call fake spaghetti? An impasta!
+Why did the math book look sad? Because it had too many problems.
+Why don't skeletons fight each other? They don't have the guts.
+I told my laptop I needed a break… now it won't stop sending me vacation ads.
+My wife told me to stop acting like a flamingo. I had to put my foot down.
+Why did the coffee file a police report? It got mugged!
+Why don't eggs tell jokes? They'd crack each other up.
+I told my doctor I broke my arm in two places. He told me to stop going to those places.
+I'm reading a book on anti-gravity. It's impossible to put down!
+Why did the bed break up with the pillow? Too much fluff.
+I stayed up all night to see where the sun went. Then it dawned on me.
+My sleep schedule is like a teenager — completely out of control.
+Why did the calendar go to therapy? Too many dates.
+Parallel lines have so much in common… it's a shame they'll never meet.
+Why was the computer cold? It left its Windows open.
+I used to hate facial hair, but then it grew on me.
+Why did the tomato turn red? Because it saw the salad dressing!
+How many tickles does it take to tickle an octopus? Ten-tickles!
+Did you hear about the cheese factory that exploded in France? There was nothing left but de Brie.
+Why did the cookie cry? It was feeling crumby.
+How many programmers does it take to change a lightbulb? None that's a hardware problem
+A DHCP packet walks into a bar and asks for a beer. Bartender says, "here, but I’ll need that back in an hour!"
+What do you call an eagle who can play the piano? Talonted!
+How many React developers does it take to change a lightbulb? None, they prefer dark mode.
+Why did the developer go broke? They kept spending all their cache.
+What did the pirate say on his 80th birthday? Aye Matey!
+A weasel walks into a bar. The bartender says, "Wow, I've never served a weasel before. What can I get for you?" Pop,goes the weasel.
+Why did the cookie go to the doctor? Because it was feeling crumbly.
+Knock knock. Who's there? Hatch. Hatch who? Bless you!
+Did you know crocodiles could grow up to 15 feet? But most just have 4.
+Why did the kid throw the watch out the window? So time would fly.
+What do you call a fake noodle? An impasta.
+What do you do when you see a space man? Park your car, man.
+You see, mountains aren't just funny. They are hill areas.
+What do you call a belt made out of watches? A waist of time.
+Why did the scarecrow win an award? Because he was outstanding in his field.
+Why is peter pan always flying? Because he neverlands
+Where do bees go to the bathroom? The BP station.
+I couldn't get a reservation at the library... They were fully booked.
+Why did Sweden start painting barcodes on the sides of their battleships? So they could Scandinavian.
+Did you hear about the two silk worms in a race? It ended in a tie.
+When is a door not a door? When it's ajar.
+What do you call a droid that takes the long way around? R2 detour.
+There are 10 types of people in this world... Those who understand binary and those who don't
+Did you hear about the cow who jumped over the barbed wire fence? It was udder destruction.
+A ham sandwhich walks into a bar and orders a beer. The bartender says... I'm sorry, we don't serve food here
+Why don't React developers like nature? They prefer the virtual DOM.
+What's blue and not very heavy? Light blue.
+Where does Napoleon keep his armies? In his sleevies.
+What did the scarf say to the hat? You go on ahead, I am going to hang around a bit longer.
+I bought some shoes from a drug dealer. I don't know what he laced them with, but I was tripping all day!
+A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?'
+Why do bears have hairy coats? Fur protection.
+What's black and white and read all over? The newspaper.
+What is the least spoken language in the world? Sign Language
+Why does Norway have barcodes on their battleships? So when they get back to port, they can Scandinavian.
+Where does Fonzie like to go for lunch? Chick-Fil-Eyyyyyyyy.
+Why are pirates called pirates? Because they arrr!
+Why do chicken coops only have two doors? Because if they had four, they would be chicken sedans
+How do you get a baby alien to sleep? You rocket.
+Why was the developer always calm? Because they knew how to handle exceptions.
+Why would a guitarist become a good programmer? He's adept at riffing in C#.
+Why don't eggs tell jokes? Because they would crack each other up.
+What creature is smarter than a talking parrot? A spelling bee.
+How good are you at Power Point? I Excel at it.
+What are the strongest days of the week? Saturday and Sunday...the rest are weekdays.
+What did one nut say as he chased another nut? I'm a cashew!
+Why do mathematicians hate the U.S.? Because it's indivisible.
+Do you want a brief explanation of what an acorn is? In a nutshell, it's an oak tree.
+Why couldn't the bicycle stand up by itself? It was two-tired.
+Why do bees hum? Because they don't know the words.
+Why didn't the number 4 get into the nightclub? Because he is 2 square.
+What is the hardest part about sky diving? The ground.
+Did you hear about the chameleon who couldn't change color? They had a reptile dysfunction.
+3 SQL statements walk into a NoSQL bar. Soon, they walk out They couldn't find a table.
+Why do Java programmers wear glasses? Because they don't C#.
+How do you make a tissue dance? You put a little boogie on it.
+Why did the developer go to therapy? They had too many unresolved issues.
+What animal is always at a game of cricket? A bat.
+Why did the programmer's wife leave him? He didn't know how to commit.
+How do you organize a space party? You planet.
+Why did the half blind man fall in the well? Because he couldn't see that well!
+Why did the mushroom get invited to the party? Because he was a fungi.
+What do you call an Argentinian with a rubber toe? Roberto
+What do elves post on Social Media? Elf-ies.
+Did you hear about the bread factory burning down? They say the business is toast.
+Why did the programmer bring a ladder to work? They heard the code needed to be debugged from a higher level.
+What’s the difference between an African elephant and an Indian elephant? About 5000 miles.
+What do you call a fly without wings? A walk.
+What's a computer's favorite snack? Microchips.
+My older brother always tore the last pages of my comic books, and never told me why. I had to draw my own conclusions.
+What kind of magic do cows believe in? MOODOO.
+What do you call a duck that gets all A's? A wise quacker.
+What do you call a bee that lives in America? A USB.
+What do you call a dictionary on drugs? High definition.
+99.9% of the people are dumb! Fortunately I belong to the remaining 1%
+What did the fish say when it hit the wall? Dam.
+How did Darth Vader know what Luke was getting for Christmas? He felt his presents.
+Why was the JavaScript developer sad? He didn't know how to null his feelings.
+What kind of dinosaur loves to sleep? A stega-snore-us.
+What do you call two barracuda fish? A Pairacuda!
+I dropped a pear in my car this morning. You should drop another one, then you would have a pair.
+Why did the chicken get a penalty? For fowl play.
+Why did the chicken cross the playground? To get to the other slide.
+What's the worst thing about ancient history class? The teachers tend to Babylon.
+What kind of bagel can fly? A plain bagel.
+If you're American when you go into the bathroom, and American when you come out, what are you when you're in there? European
+What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+Want to hear my pizza joke? Never mind, it's too cheesy.
+What did the fish say when it swam into a wall? Damn!
+How many hipsters does it take to change a lightbulb? Oh, it's a really obscure number. You've probably never heard of it.
+Why did the fireman wear red, white, and blue suspenders? To hold his pants up.
+How many kids with ADD does it take to change a lightbulb? Let's go ride bikes!
+What do you call a crowd of chess players bragging about their wins in a hotel lobby? Chess nuts boasting in an open foyer.
+Where does batman go to the bathroom? The batroom.
+Why did the tomato blush? Because it saw the salad dressing.
+What do you call fake spaghetti? An impasta.
+Did you hear about the new restaurant on the moon? The food is great, but there’s just no atmosphere.
+If you boil a clown... Do you get a laughing stock?
+Did you hear the news? FedEx and UPS are merging. They’re going to go by the name Fed-Up from now on.
+Don't look at the eclipse through a colander. You'll strain your eyes.
+Why do birds fly south for the winter? Because it's too far to walk.
+What do you get when you cross a chicken with a skunk? A fowl smell!
+What did one snowman say to the other snow man? Do you smell carrot?
+Why did the developer break up with their keyboard? It just wasn't their type anymore.
+Why did the programmer go broke? He used up all his cache
+Why did the man put his money in the freezer? He wanted cold hard cash!
+Did you hear about the runner who was criticized? He just took it in stride
+What did the Buffalo say to his little boy when he dropped him off at school? Bison.
+What's the difference between a guitar and a fish? You can tune a guitar but you can't "tuna"fish!
+What's orange and sounds like a parrot? A Carrot.
+Why did Dracula lie in the wrong coffin? He made a grave mistake.
+What did Romans use to cut pizza before the rolling cutter was invented? Lil Caesars
+Due to complaints, Hawaii passed a law where you're not allowed to laugh above a certain decibel. You can only use a low ha.
+Want to hear a joke about a piece of paper? Never mind...it's tearable
+Why do bananas have to put on sunscreen before they go to the beach? Because they might peel!
+What is the tallest building in the world? The library, it’s got the most stories!
+Did you hear about the submarine industry? It really took a dive...
+How are false teeth like stars? They come out at night!
+What do you get when you cross a rabbit with a water hose? Hare spray.
+I was gonna tell you a joke about UDP... ...but you might not get it.
+Why do you never see elephants hiding in trees? Because they're so good at it.
+What did the spaghetti say to the other spaghetti? Pasta la vista, baby!
+Why did the worker get fired from the orange juice factory? Lack of concentration.
+Why does a chicken coop only have two doors? Because if it had four doors it would be a chicken sedan.
+What lies at the bottom of the ocean and twitches? A nervous wreck.
+Why did the house go to the doctor? It was having window panes.
+What did the big flower say to the littler flower? Hi, bud!
+Why are graveyards so noisy? Because of all the coffin.
+What do you call a nervous javelin thrower? Shakespeare.
+If you put a million monkeys at a million keyboards, one of them will eventually write a Java program the rest of them will write Perl
+How does a scientist freshen their breath? With experi-mints!
+Why did the girl smear peanut butter on the road? To go with the traffic jam.
+I got hit in the head by a soda can, but it didn't hurt that much... It was a soft drink.
+Why don't skeletons fight each other? They don't have the guts.
+What is a centipedes's favorite Beatle song? I want to hold your hand, hand, hand, hand...
+What do you give to a lemon in need? Lemonaid.
+What do you call cheese by itself? Provolone.
+['hip', 'hip'] (hip hip array)
+What kind of shoes does a thief wear? Sneakers
+The Sergeant-Major growled at the young soldier: I didn’t see you at camouflage training this morning. Thank you very much, sir.
+How can you tell a vampire has a cold? They start coffin.
+Did you hear the joke about the wandering nun? She was a roman catholic.
+What did celery say when he broke up with his girlfriend? She wasn't right for me, so I really don't carrot all.
+Did you hear about the Mexican train killer? He had loco motives
+What kind of tree fits in your hand? A palm tree!
+How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?
+Why don't you find hippopotamuses hiding in trees? They're really good at it.
+Why did the designer break up with their font? Because it wasn't their type.
+What do you call a pig with three eyes? Piiig
+How many lips does a flower have? Tulips
+Why did the A go to the bathroom and come out as an E? Because he had a vowel movement.
+Why did the developer go broke buying Bitcoin? He kept calling it bytecoin and didn't get any.
+What’s brown and sounds like a bell? Dung!
+What is the leading cause of dry skin? Towels
+Did you hear that the police have a warrant out on a midget psychic ripping people off? It reads "Small medium at large."
+Why did the programmer bring a broom to work? To clean up all the bugs.
+What did the Red light say to the Green light? Don't look at me I'm changing!
+Have you heard the rumor going around about butter? Never mind, I shouldn't spread it.
+What did the late tomato say to the early tomato? I’ll ketch up
+How do you find Will Smith in the snow? Look for fresh prints.
+What's the best thing about a Boolean? Even if you're wrong, you're only off by a bit.
+Lady: How do I spread love in this cruel world? Random Dude: [...💘]
+What did the 0 say to the 8? Nice belt.
+What did Michael Jackson name his denim store? Billy Jeans!
+What do you call a group of disorganized cats? A cat-tastrophe.
+Why do programmers prefer dark chocolate? Because it's bitter like their code.
+What does the mermaid wear to math class? Algae-bra.
+Why do pumpkins sit on people’s porches? They have no hands to knock on the door.
+What do you get when you cross a bee and a sheep? A bah-humbug.
+What do you call a fat psychic? A four-chin teller.
+Who is the coolest Doctor in the hospital? The hip Doctor!
+Knock knock. Who's there? Little old lady. Little old lady who? I didn't know you could yodel!
+What do vegetarian zombies eat? Grrrrrainnnnnssss.
+An IPv6 packet is walking out of the house. He goes nowhere.
+What is red and smells like blue paint? Red paint!
+Why do trees seem suspicious on sunny days? Dunno, they're just a bit shady.
+What did the ocean say to the shore? Nothing, it just waved.
+Did you hear that David lost his ID in prague? Now we just have to call him Dav.
+Hey, dad, did you get a haircut? No, I got them all cut.
+Why did the math book look sad? Because it had too many problems.
+What did the beaver say to the tree? It's been nice gnawing you.
+Did you hear about the Viking who was reincarnated? He was Bjorn again
+What do you call a girl between two posts? Annette.
+Did you hear about the scientist who was lab partners with a pot of boiling water? He had a very esteemed colleague.
+What's the object-oriented way to become wealthy? Inheritance
+Do you know what the word 'was' was initially? Before was was was was was is.
+What happens when you anger a brain surgeon? They will give you a piece of your mind.
+What do you call a thieving alligator? A crookodile!
+What's the worst part about being a cross-eyed teacher? They can't control their pupils.
+What is this movie about? It is about 2 hours long.
+Why does it take longer to get from 1st to 2nd base, than it does to get from 2nd to 3rd base? Because there’s a Shortstop in between!
+Finally realized why my plant sits around doing nothing all day... He loves his pot.
+What musical instrument is found in the bathroom? A tuba toothpaste.
+Why is seven bigger than nine? Because seven ate nine.
+Why didn’t the orange win the race? It ran out of juice.
+Where do young cows eat lunch? In the calf-ateria.
+What’s Forest Gump’s Facebook password? 1forest1
+Why do ducks make great detectives? They always quack the case.
+What's brown and sticky? A stick.
+What is a vampire's favorite fruit? A blood orange.
+What do you call a bee that can't make up its mind? A maybe.
+Why did the tree go to the dentist? It needed a root canal.
+Why couldn't the kid see the pirate movie? Because it was rated arrr!
+Why did the programmer quit their job? They didn't get arrays.
+Where do programmers like to hangout? The Foo Bar.
+Where do sheep go to get their hair cut? The baa-baa shop.
+What do you give a sick lemon? Lemonaid.
+What did the digital clock say to the grandfather clock? Look, no hands!
+Knock knock. Who's there? Opportunity. That is impossible. Opportunity doesn’t come knocking twice!
+What does a pirate pay for his corn? A buccaneer!
+Why do scuba divers fall backwards into the water? Because if they fell forwards they’d still be in the boat.
+I can't tell if i like this blender... It keeps giving me mixed results.
+Where do hamburgers go to dance? The meat-ball.
+What do you call a careful wolf? Aware wolf.
+What do you call a suspicious looking laptop? Asus
+What type of music do balloons hate? Pop music!
+How come a man driving a train got struck by lightning? He was a good conductor.
+A grocery store cashier asked if I would like my milk in a bag. I told her 'No, thanks. The carton works fine.'
+Why didn't the skeleton go for prom? Because it had nobody.
+What has ears but cannot hear? A field of corn.
+Did you hear the one about the guy with the broken hearing aid? Neither did he.
+How do you generate a random string? Put a Windows user in front of Vim and tell them to exit.
+Why don't scientists trust atoms? Because they make up everything.
+Never take advice from electrons. They are always negative.
+What do you call a sheep with no legs? A cloud.
+What do you call a cow with no legs? Ground beef!
+Why did the Clydesdale give the pony a glass of water? Because he was a little horse
+Why do programmers always get Christmas and Halloween mixed up? Because DEC 25 = OCT 31
+What goes after USA? USB.
+Why do bees have sticky hair? Because they use honey combs!
+What do you call corn that joins the army? Kernel.
+Where do rabbits go after they get married? On a bunny-moon.
+What do you call an elephant that doesn’t matter? An irrelephant.
+I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’ I couldn’t turn it down.
+I had a dream that I was a muffler last night. I woke up exhausted!
+did you know the first French fries weren't cooked in France? they were cooked in Greece
+what do you call a dog that can do magic tricks? a labracadabrador
+Why dot net developers don't wear glasses? Because they see sharp.
+What did the Dorito farmer say to the other Dorito farmer? Cool Ranch!
+How was the snow globe feeling after the storm? A little shaken.
+Why does Superman get invited to dinners? Because he is a Supperhero.
+Why do crabs never give to charity? Because they’re shellfish.
+Why can't bicycles stand on their own? They are two tired
+How do you fix a damaged jack-o-lantern? You use a pumpkin patch.
+Can a kangaroo jump higher than the Empire State Building? Of course. The Empire State Building can't jump.
+While I was sleeping my friends decided to write math equations on me. You should have seen the expression on my face when I woke up.
+Which song would an exception sing? Can't catch me - Avicii
+Why did the man run around his bed? Because he was trying to catch up on his sleep!
+Dad, can you put my shoes on? I don't think they'll fit me.
+What did the traffic light say to the car as it passed? Don't look I'm changing!
+Did you hear about the guy who invented Lifesavers? They say he made a mint.
+Is the pool safe for diving? It deep ends.
+Did you hear about the guy whose whole left side was cut off? He's all right now.
+Why do choirs keep buckets handy? So they can carry their tune
+Can I watch the TV? Yes, but don’t turn it on.
+If you see a robbery at an Apple Store... Does that make you an iWitness?
+Did you hear about the hungry clock? It went back four seconds.
+To understand what recursion is... You must first understand what recursion is
+Why did the kid cross the playground? To get to the other slide.
+What did one plate say to the other plate? Dinner is on me!
+How do the trees get on the internet? They log on.
+What do you call a troublesome Canadian high schooler? A poutine.
+How do you comfort a designer? You give them some space... between the elements.
+How do you tell the difference between a crocodile and an alligator? You will see one later and one in a while.
+What biscuit does a short person like? Shortbread.
+Why did the golfer wear two pairs of pants? In case he got a hole in one.
+Why was the designer always cold? Because they always used too much ice-olation.
+What's the best part about TCP jokes? I get to keep telling them until you get them.
+What’s the advantage of living in Switzerland? Well, the flag is a big plus.
+Did you know you should always take an extra pair of pants golfing? Just in case you get a hole in one.
+The punchline often arrives before the set-up. Do you know the problem with UDP jokes?
+How did the hipster burn the roof of his mouth? He ate the pizza before it was cool.
+What was a more important invention than the first telephone? The second one.
+Why was the font always tired? It was always bold.
+How many apples grow on a tree? All of them!
+Why does Waldo only wear stripes? Because he doesn't want to be spotted.
+What did the grape do when he got stepped on? He let out a little wine.
+Where was the Declaration of Independence signed? At the bottom!
+What do you call a dad that has fallen through the ice? A Popsicle.
+What does C.S. Lewis keep at the back of his wardrobe? Narnia business!
+Why did the coffee file a police report? It got mugged.
+Knock knock. Who's there? Cows go. Cows go who? No, cows go moo.
+I just watched a documentary about beavers. It was the best dam show I ever saw
+What did one ocean say to the other ocean? Nothing, they just waved.
+What's the best time to go to the dentist? Tooth hurty.
+What do you call a monkey in a mine field? A babooooom!
+Why did the functions stop calling each other? Because they had constant arguments.
+Why do valley girls hang out in odd numbered groups? Because they can't even.
+Why don't oysters give to charity? Because they're shellfish.
+What do you call an alligator in a vest? An in-vest-igator!
+What kind of pants do ghosts wear? Boo jeans.
+How do hens stay fit? They always egg-cercise!
+How many seconds are in a year? 12. January 2nd, February 2nd, March 2nd, April 2nd.... etc
+Why do pirates not know the alphabet? They always get stuck at "C".
+What did the Java code say to the C code? You've got no class.
+What do ghosts call their true love? Their ghoul-friend
+Why does a Moon-rock taste better than an Earth-rock? Because it's a little meteor.
+What does a clock do when it's hungry? It goes back four seconds!
+Why did the barber win the race? He took a short cut.
+When a dad drives past a graveyard: Did you know that's a popular cemetery? Yep, people are just dying to get in there
+A programmer puts two glasses on his bedside table before going to sleep. A full one, in case he gets thirsty, and an empty one, in case he doesn’t.
+How does a train eat? It goes chew, chew
+Have you heard of the band 1023MB? They haven't got a gig yet.
+How many bones are in the human hand? A handful of them.
+Why did the melons plan a big wedding? Because they cantaloupe!
+What is the difference between ignorance and apathy? I don't know and I don't care.
+Bad at golf? Join the club.
+I started a new business making yachts in my attic this year... The sails are going through the roof.
+How do you check if a webpage is HTML5? Try it out on Internet Explorer
+When does a joke become a dad joke? When it becomes apparent.
+Why are “Dad Jokes” so good? Because the punchline is apparent.
+What happens to a frog's car when it breaks down? It gets toad away
+How do you make holy water? You boil the hell out of it
+Why are oranges the smartest fruit? Because they are made to concentrate.
+What's the difference between a seal and a sea lion? An ion!
+Did you hear about the crime in the parking garage? It was wrong on so many levels.
+Why was Cinderalla thrown out of the football team? Because she ran away from the ball.
+What do you call an old snowman? Water.
+Do I enjoy making courthouse puns? Guilty
+What do you call a pig that knows karate? A pork chop!
+What did one wall say to the other wall? I'll meet you at the corner!
+What do you get hanging from Apple trees? Sore arms.
+What does an angry pepper do? It gets jalapeño face.
+Ever wondered why bees hum? It's because they don't know the words.
+What do you get when you cross a React developer with a mathematician? A function component.
+What did the ocean say to the beach? Thanks for all the sediment.
+What do you call a cow with two legs? Lean beef.
+Why did the programmer always carry a pencil? They preferred to write in C#.
+Why can't a bicycle stand on its own? It's two-tired.
+How much does a hipster weigh? An instagram.
+What is a witch's favorite subject in school? Spelling!
+How do you get two whales in a car? Start in England and drive West.
+What's red and bad for your teeth? A Brick.
+Knock-knock. A race condition. Who is there?
+What do you call a factory that sells passable products? A satisfactory
+What do you call a group of killer whales playing instruments? An Orca-stra.
+What kind of music do welders like? Heavy metal.
+Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+Can February march? No, but April may.
+What did the dog say to the two trees? Bark bark.
+How does the moon cut his hair? Eclipse it.
+Which side of the chicken has more feathers? The outside.
+Why didn’t the skeleton cross the road? Because he had no guts.
+Who did the wizard marry? His ghoul-friend
+What's Forrest Gump's password? 1Forrest1
+What do prisoners use to call each other? Cell phones.
+How come the stadium got hot after the game? Because all of the fans left.
+Want to hear a chimney joke? Got stacks of em! First one's on the house
+Why did the butcher work extra hours at the shop? To make ends meat.
+Did you hear the story about the cheese that saved the world? It was legend dairy.
+Do you know where you can get chicken broth in bulk? The stock market.
+What do you call a computer mouse that swears a lot? A cursor!
+What did the left eye say to the right eye? Between us, something smells!
+Why can't you use "Beef stew"as a password? Because it's not stroganoff.
+What’s E.T. short for? He’s only got little legs.
+What do you call sad coffee? Despresso.
+Is there a hole in your shoe? No… Then how’d you get your foot in it?
+What do birds give out on Halloween? Tweets.
+What do you call a pile of cats? A Meowtain.
+What do you call a fashionable lawn statue with an excellent sense of rhythmn? A metro-gnome
+Want to hear a joke about construction? Nah, I'm still working on it.
+What do you call a laughing motorcycle? A Yamahahahaha.
+Where’s the bin? I haven’t been anywhere!
+Why can’t you hear a pterodactyl go to the bathroom? The p is silent.
+Hey, wanna hear a joke? Parsing HTML with regex.
+Why did the rooster cross the road? He heard that the chickens at KFC were pretty hot.
+Why do C# and Java developers keep breaking their keyboards? Because they use a strongly typed language.
+What do you do on a remote island? Try and find the TV island it belongs to.
+What time did the man go to the dentist? Tooth hurt-y.
+What do you call someone with no nose? Nobody knows.
+Why do wizards clean their teeth three times a day? To prevent bat breath!
+How does a penguin build it’s house? Igloos it together.
+What's the best thing about elevator jokes? They work on so many levels.
+What is a tornado's favorite game to play? Twister!
+Have you ever heard of a music group called Cellophane? They mostly wrap.
+What do I look like? A JOKE MACHINE!?
+What cheese can never be yours? Nacho cheese.
+Why can't your nose be 12 inches long? Because then it'd be a foot!
+How do you fix a broken pizza? With tomato paste.
+How do you make a hankie dance? Put a little boogie in it.
+When do doctors get angry? When they run out of patients.
+Why are fish so smart? Because they live in schools!
+Why did the belt go to prison? He held up a pair of pants!
+Why did the burglar hang his mugshot on the wall? To prove that he was framed!
+Why did the octopus beat the shark in a fight? Because it was well armed.
+Two guys walk into a bar . . . The first guy says "Ouch!" and the second says "Yeah, I didn't see it either."
+Where do you learn to make banana splits? At sundae school.
+Why are mummys scared of vacation? They're afraid to unwind.
+What kind of award did the dentist receive? A little plaque.
+What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
+How do you know if there’s an elephant under your bed? Your head hits the ceiling!
+Why did the golfer bring two pairs of pants? In case he got a hole in one.
+Why did the programmer go to art school? He wanted to learn how to code outside the box.
+How does a dyslexic poet write? Inverse.
+What did the mountain climber name his son? Cliff.
+Why are fish easy to weigh? Because they have their own scales.
+Why did the invisible man turn down the job offer? He couldn't see himself doing it
+Did you know that protons have mass? I didn't even know they were catholic.
+Well... That’s a deep subject.
+What is the most used language in programming? Profanity.
+What's the best thing about Switzerland? I don't know, but their flag is a big plus.
+Why don't programmers like nature? Too many bugs.
+Why did the opera singer go sailing? They wanted to hit the high Cs.
+What do you call a boomerang that won't come back? A stick.
+Where did you learn to make ice cream? Sunday school.
+How does a French skeleton say hello? Bone-jour.
+What's the difference between a hippo and a zippo? One is really heavy, the other is a little lighter.
+Why are ghosts bad liars? Because you can see right through them!
+Why did the developer quit his job? Because he didn't get arrays.
+Why are football stadiums so cool? Because every seat has a fan in it.
+What do you get when you cross a snowman with a vampire? Frostbite.
+Why did the programmer quit his job? Because he didn't get arrays.
+What kind of music do planets listen to? Nep-tunes.
+Why did the private classes break up? Because they never saw each other.
+Did you watch the new comic book movie? It was very graphic!
+Why are skeletons so calm? Because nothing gets under their skin.
+What did the judge say to the dentist? Do you swear to pull the tooth, the whole tooth and nothing but the tooth?
+Did you hear about the kidnapping at school? It's ok, he woke up.
+What time is it? I don't know... it keeps changing.
+A termite walks into a bar and says... 'Where is the bar tended?'
+What do you call a bear with no teeth? A gummy bear!
+What did the janitor say when he jumped out of the closet? Supplies!
+Where did the API go to eat? To the RESTaurant.
+What do you call a cow on a trampoline? A milk shake!
+I just got fired from my job at the keyboard factory. They told me I wasn't putting in enough shifts.
+A user interface is like a joke. If you have to explain it then it is not that good.
+Why don't programmers like nature? There's too many bugs.
+What’s the object-oriented way to become wealthy? Inheritance.
+How do you steal a coat? You jacket.
+Why did the cookie cry? Because his mother was a wafer so long
+What did the shy pebble wish for? That she was a little boulder.
+What do you call a singing Laptop? A Dell
+Why did the programmer always mix up Halloween and Christmas? Because Oct 31 equals Dec 25.
+How do locomotives know where they're going? Lots of training
+Why couldn't the lifeguard save the hippie? He was too far out, man.
+I'm reading a book about anti-gravity... It's impossible to put down
+How do you make the number one disappear? Add the letter G and it’s “gone”!
+Why do fathers take an extra pair of socks when they go golfing? In case they get a hole in one!
+What’s 50 Cent’s name in Zimbabwe? 200 Dollars.
+Knock knock. Who's there? A broken pencil. A broken pencil who? Never mind. It's pointless.
+What did the router say to the doctor? It hurts when IP.
+What did the duck say when he bought lipstick? Put it on my bill.
+Why would a guitarist become a good programmer? He's adept at riffing in C#.
+Why did the programmer go to art school? He wanted to learn how to code outside the box.
+Why do Java programmers wear glasses? Because they don't C#.
+There are 10 types of people in this world... Those who understand binary and those who don't
+Why did the functions stop calling each other? Because they had constant arguments.
+
+
