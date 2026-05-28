@@ -1,5 +1,5 @@
 {
-  "name": "mood-joke-api",
+  "name": "mood-joke-agent-api",
   "version": "1.0.0",
   "description": "Backend Agentic API for mood-based joke generator powered by Claude.",
   "main": "server.js",
