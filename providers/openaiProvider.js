@@ -7,7 +7,7 @@ const DEFAULT_MODEL = "gpt-4o";
  * OpenAIProvider
  *
  * Wraps the OpenAI SDK. Supports any model with tool/function calling:
- * gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo, etc.
+ * gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo, o1, o3, etc.
  *
  * ── Tool format translation ──────────────────────────────────────────────────
  * Normalised → OpenAI:
@@ -31,7 +31,8 @@ class OpenAIProvider extends BaseProvider {
       maxTokens: parseInt(process.env.LLM_MAX_TOKENS, 10) || 1024,
     }, process.env.OPENAI_API_KEY);
 
-    this._client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    this._client     = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    this._tokenParam = null;  // cached once we know which param this model accepts
     console.log(`🟢 Provider=[OpenAIProvider] -> Model=${this.model}`);
   }
 
@@ -115,15 +116,46 @@ class OpenAIProvider extends BaseProvider {
 
   /* ── Main call ─────────────────────────────────────────────────────────── */
 
+  /**
+   * Some models (o1, o3, ...) require `max_completion_tokens`; others need
+   * `max_tokens`. Rather than maintaining a model-name allowlist, we try
+   * `max_tokens` first and, if the API returns the specific "unsupported
+   * parameter" error, transparently retry with `max_completion_tokens`.
+   * The detected preference is cached on the instance so subsequent turns in
+   * the same agentic loop pay no extra round-trip cost.
+   */
   async call(messages, tools, system) {
-    const response = await this._client.chat.completions.create({
-      model:      this.model,
-      max_tokens: this.maxTokens,
-      tools:      this._formatTools(tools),
-      messages:   this._formatMessages(messages, system),
-    });
+    const payload = {
+      model:    this.model,
+      tools:    this._formatTools(tools),
+      messages: this._formatMessages(messages, system),
+    };
 
-    return this._parseResponse(response);
+    // Use whichever token param was already confirmed for this model, or
+    // default to max_tokens for the first call.
+    const firstParam  = this._tokenParam || "max_tokens";
+    const secondParam = firstParam === "max_tokens" ? "max_completion_tokens" : "max_tokens";
+
+    try {
+      const response = await this._client.chat.completions.create({
+        ...payload,
+        [firstParam]: this.maxTokens,
+      });
+      this._tokenParam = firstParam;   // cache for future iterations
+      return this._parseResponse(response);
+    } catch (err) {
+      // Retry once with the alternative param if OpenAI rejects the first
+      if (err?.status === 400 && err?.message?.includes(firstParam)) {
+        console.warn(`⚠️  [OpenAIProvider] "${firstParam}" rejected — retrying with "${secondParam}"`);
+        const response = await this._client.chat.completions.create({
+          ...payload,
+          [secondParam]: this.maxTokens,
+        });
+        this._tokenParam = secondParam;  // cache so future calls skip the retry
+        return this._parseResponse(response);
+      }
+      throw err;
+    }
   }
 }
 
