@@ -12,6 +12,7 @@ const cors            = require("cors");
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
+const apiDocsUrl = (process.env.OPENAPI_SPEC_URL) || `http://localhost:${PORT}`;
 
 /* ── Initialise the joke store (local file or vector DB) ─────────────────── */
 const store = createStore();
@@ -49,7 +50,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: process.env.OPENAPI_SPEC_URL || `http://localhost:${PORT}`,
+      url: process.env.OPENAPI_SPEC_URL || `${apiDocsUrl}`,
       description: "Backend Endpoints",
     },
   ],
@@ -274,7 +275,8 @@ app.get("/stats", (req, res) => {
 
 app.listen(PORT, () => {
   const storeType = (process.env.STORE || "local").toUpperCase();
-  console.log(`✅  Mood Joke Generator running → http://localhost:${PORT}`);
+
+  console.log(`✅  Mood Joke Generator running → ${apiDocsUrl}`);
   console.log(`📦  Store: ${storeType}`);
-  console.log(`📘  API Docs:    ${process.env.OPENAPI_SPEC_URL}/docs`);
+  console.log(`📘  API Docs:    ${apiDocsUrl}/docs`);
 });
