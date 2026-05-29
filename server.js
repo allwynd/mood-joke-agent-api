@@ -36,17 +36,30 @@ app.use(express.json());
 let ratings = [];
 
 /* ── Swagger / OpenAPI ────────────────────────────────────────────────────
-   openapi.yaml supplies the base spec (info, servers, tags, components).
-   Per-endpoint `@swagger` JSDoc blocks below contribute the `paths` section.
-   Mounted at /docs (interactive UI) and /openapi.json (raw spec).
+Generates API documentation from JSDoc comments and serves it at /docs, with the OpenAPI spec available at /openapi.json. 
+The spec URL is configurable via the OPENAPI_SPEC_URL environment variable to support hosting on platforms like
+Azure where the public URL may differ from localhost.
 ─────────────────────────────────────────────────────────────────────────── */
-const baseSpec = yaml.load(fs.readFileSync(path.join(__dirname, "openapi.yaml"), "utf8"));
-delete baseSpec.paths; // paths live in @swagger JSDoc — keep one source of truth
+const swaggerDefinition = {
+  openapi: "3.0.0",
+  info: {
+    title: "Mood Joke Generator API",
+    version: "1.0.0",
+    description: "API for generating and rating jokes based on mood",
+  },
+  servers: [
+    {
+      url: process.env.OPENAPI_SPEC_URL || `http://localhost:${PORT}`,
+      description: "Backend Endpoints",
+    },
+  ],
+};
 
 const swaggerSpec = swaggerJSDoc({
-  definition: baseSpec,
-  apis: [__filename],
+  definition: swaggerDefinition,
+  apis: [__filename], // still uses your JSDoc annotations
 });
+
 
 app.use(
   "/docs",
@@ -263,5 +276,5 @@ app.listen(PORT, () => {
   const storeType = (process.env.STORE || "local").toUpperCase();
   console.log(`✅  Mood Joke Generator running → http://localhost:${PORT}`);
   console.log(`📦  Store: ${storeType}`);
-  console.log(`📘  API Docs:    http://localhost:${PORT}/docs`);
+  console.log(`📘  API Docs:    ${process.env.OPENAPI_SPEC_URL}/docs`);
 });
